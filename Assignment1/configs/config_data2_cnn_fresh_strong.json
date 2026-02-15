@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "epochs": 25,
+  "batch_size": 64,
+  "lr": 0.01,
+  "lr_decay_every": 6,
+  "lr_decay_gamma": 0.7,
+  "weight_decay": 0.0005,
+  "momentum": 0.9,
+  "val_ratio": 0.1,
+  "augment": true,
+  "augment_crop_pad": 4,
+  "normalize_mean": [0.5071, 0.4867, 0.4408],
+  "normalize_std": [0.2675, 0.2565, 0.2761],
+  "model_type": "cnn",
+  "in_channels": 3,
+  "image_size": 32,
+  "conv1_out": 16,
+  "conv2_out": 32,
+  "hidden": 256,
+  "out_dir": "outputs/data2_cnn_strong"
+}

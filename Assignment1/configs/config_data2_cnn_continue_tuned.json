@@ -1,0 +1,23 @@
+{
+  "seed": 42,
+  "epochs": 35,
+  "batch_size": 64,
+  "lr": 0.002,
+  "lr_decay_every": 5,
+  "lr_decay_gamma": 0.8,
+  "weight_decay": 0.0001,
+  "momentum": 0.9,
+  "val_ratio": 0.1,
+  "augment": true,
+  "augment_crop_pad": 4,
+  "normalize_mean": [0.0, 0.0, 0.0],
+  "normalize_std": [1.0, 1.0, 1.0],
+  "model_type": "cnn",
+  "in_channels": 3,
+  "image_size": 32,
+  "conv1_out": 12,
+  "conv2_out": 24,
+  "hidden": 128,
+  "out_dir": "outputs/data2",
+  "resume_path": "outputs/data2/model_checkpoint.json"
+}

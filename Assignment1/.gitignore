@@ -1,1 +1,13 @@
 .DS_Store
+.venv/
+__pycache__/
+*.pyc
+
+datasets/
+mini_data/
+outputs/
+build/
+
+models/
+backend/
+reports/
