@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "epochs": 20,
+  "batch_size": 64,
+  "lr": 0.01,
+  "lr_decay_every": 6,
+  "lr_decay_gamma": 0.7,
+  "weight_decay": 0.0005,
+  "momentum": 0.9,
+  "val_ratio": 0.1,
+  "augment": true,
+  "augment_crop_pad": 2,
+  "normalize_mean": [0.5, 0.5, 0.5],
+  "normalize_std": [0.5, 0.5, 0.5],
+  "model_type": "cnn",
+  "in_channels": 3,
+  "image_size": 32,
+  "conv1_out": 8,
+  "conv2_out": 16,
+  "hidden": 64,
+  "out_dir": "outputs/data1_fresh_tuned"
+}
