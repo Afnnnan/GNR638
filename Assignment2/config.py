@@ -30,9 +30,11 @@ def get_device() -> torch.device:
 DEVICE = get_device()
 
 # ─── Paths ───────────────────────────────────────────────────────────────────
-# Adjust DATA_ROOT if running on Colab/Kaggle
+# Adjust DATA_ROOT if running on Colab/Kaggle via environment variable:
+#   export DATA_ROOT="/kaggle/input/aid-dataset/train_data"
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-DATA_ROOT = os.path.join(PROJECT_ROOT, "Assignment 2 Datasets", "train_data")
+DATA_ROOT = os.environ.get("DATA_ROOT",
+    os.path.join(PROJECT_ROOT, "Assignment 2 Datasets", "train_data"))
 RESULTS_DIR = os.path.join(PROJECT_ROOT, "results")
 CHECKPOINT_DIR = os.path.join(RESULTS_DIR, "checkpoints")
 
