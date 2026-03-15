@@ -46,20 +46,22 @@ class GaussianNoise:
 
 
 class MotionBlur:
-    """Apply motion blur via a PIL filter before tensor conversion."""
+    """Apply horizontal motion blur using numpy convolution."""
     def __init__(self, kernel_size: int = 15):
         self.kernel_size = kernel_size
 
     def __call__(self, img):
-        # Horizontal motion blur kernel
-        kernel = [0] * self.kernel_size * self.kernel_size
-        mid = self.kernel_size // 2
-        for i in range(self.kernel_size):
-            kernel[mid * self.kernel_size + i] = 1.0 / self.kernel_size
-        return img.filter(ImageFilter.Kernel(
-            size=(self.kernel_size, self.kernel_size),
-            kernel=kernel,
-        ))
+        # Convert to numpy, apply 1D horizontal blur, convert back
+        from PIL import Image
+        img_arr = np.array(img, dtype=np.float32)
+        kernel = np.zeros((self.kernel_size, self.kernel_size), dtype=np.float32)
+        kernel[self.kernel_size // 2, :] = 1.0 / self.kernel_size
+        # Apply convolution per channel
+        from scipy.ndimage import convolve
+        for c in range(img_arr.shape[2]):
+            img_arr[:, :, c] = convolve(img_arr[:, :, c], kernel, mode='reflect')
+        img_arr = np.clip(img_arr, 0, 255).astype(np.uint8)
+        return Image.fromarray(img_arr)
 
 
 class BrightnessShift:
