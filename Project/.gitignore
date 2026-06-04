@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Submission artifacts
+submission.csv
+*.zip
+
+# Sample test data (not needed in repo)
+sample_test_project_2/
+
+# Gemini/IDE
+.gemini/
